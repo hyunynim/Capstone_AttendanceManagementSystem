@@ -44,7 +44,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('--path', help='학생들의 사진 폴더', default='student_images')
-    parser.add_argument('--course_id', help='과목코트', required=True)
+    parser.add_argument('--course_id', help='과목코드', required=True)
     parser.add_argument('--lecture_id', help='강좌번호', required=True)
     parser.add_argument('--sort_by_id', help='학생 번호별로 출석 리스트를 정렬', action='store_true', default=False)
     parser.add_argument('--sort_by_time', help='학생의 출석 시간별로 출석 리스트를 정렬', action='store_true', default=False)
@@ -60,7 +60,7 @@ if __name__ == "__main__":
         sort_by_name = True
    
     try:
-        df = pd.read_excel("courses_database.xlsx", converters={"과목코트": str, "강좌번호": str})
+        df = pd.read_excel("courses_database.xlsx", converters={"과목코드": str, "강좌번호": str})
     except OSError as err:
         print("OS error: {0}".format(err))
         exit(0)
